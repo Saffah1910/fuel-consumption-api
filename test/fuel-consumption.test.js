@@ -193,7 +193,7 @@ describe("The FuelConsumption API", function () {
         
     });
 
-    // after(db.$pool.end)
+     after(db.$pool.end)
 
     
 });

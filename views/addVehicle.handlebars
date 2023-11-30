@@ -1,0 +1,65 @@
+<title>Add Vehicle</title>
+<style>
+    /* Add your CSS styling here */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    form {
+        max-width: 400px;
+        margin: 20px auto;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 8px;
+    }
+
+    input {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 16px;
+    }
+
+    button {
+        padding: 8px;
+        cursor: pointer;
+    }
+</style>
+</head>
+
+<body>
+
+    <h1>Add Vehicle</h1>
+    <a href="/">Go Back to List</a>
+
+    <form  action="/addVehicle" method="post">
+
+        <label for="description">Description:</label>
+        <input type="text" id="description" name="description" required>
+
+        <label for="reg_number">Registration Number:</label>
+        <input type="text" id="reg_number" name="reg_number" required>
+
+        <label for="distanceTraveled">Total Distance Traveled:</label>
+        <input type="number" id="distanceTraveled" name="distanceTraveled" required>
+
+        <label for="fuelSpent">Total Fuel Spent:</label>
+        <input type="number" id="fuelSpent" name="fuelSpent" required>
+
+        <label for="fuelConsumption">Fuel Consumption:</label>
+        <input type="number" id="fuelConsumption" name="fuelConsumption" required>
+
+        <button type="submit">Add Vehicle</button>
+    </form>
+
+    {{!-- <button onclick="goToListAllVehicles()">Go Back to List</button> --}}
+
+
+
+</body>

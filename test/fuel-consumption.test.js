@@ -1,26 +1,34 @@
 import FuelConsumption from '../fuel-consumption.js';
 import pgPromise from 'pg-promise';
+import 'dotenv/config';
 import assert from 'assert';
 
-const pgp = pgPromise();
-const DATABASE_URL=  "postgresql://fuel:fuel@localhost:5432/fuel_consumption";
 
-const config = { 
-	connectionString : DATABASE_URL
-}
 
-if (process.env.NODE_ENV == 'production') {
-	config.ssl = { 
-		rejectUnauthorized : false
-	}
-}
+const pgp = pgPromise({});
+const connectionString = process.env.DATABASE_URL;
+const db = pgp(connectionString);
 
-const db = pgp(config);
+// const pgp = pgPromise();
+// const DATABASE_URL=  "postgresql://fuel:fuel@localhost:5432/fuel_consumption";
+
+// const config = { 
+// 	connectionString : DATABASE_URL
+// }
+
+// if (process.env.NODE_ENV == 'production') {
+// 	config.ssl = { 
+// 		rejectUnauthorized : false
+// 	}
+// }
+
+// const db = pgp(config);
 
 describe("The FuelConsumption API", function () {
 
     // set the test time out if needed
-    this.timeout(3000); 
+    this.timeout(5000); // Set timeout to 5000ms (5 seconds)
+
 
     this.beforeEach(async function(){
         await db.none(`delete from fuel_entries`);

@@ -1,0 +1,82 @@
+
+    <title>List All Vehicles</title>
+    <style>
+        /* Add your CSS styling here */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        #vehicleList {
+            margin-top: 20px;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        #vehicleList th,
+        #vehicleList td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        #vehicleList th {
+            background-color: #f2f2f2;
+        }
+
+        button {
+            padding: 8px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+   
+
+<a href="/addVehicle"> <button>Go to Add Vehicle</button></a>
+  
+
+    <a href="refuel">
+        <button>Refuel</button>
+    </a>
+
+ 
+<form action="/" method="get">
+
+
+    <h1>List All Vehicles</h1>
+
+<table id="vehicleList">
+    <thead>
+        <tr>
+            <th>Description</th>
+            <th>Registration Number</th>
+            <th>Total Distance Traveled</th>
+            <th>Total Fuel Spent</th>
+            <th>Fuel Consumption</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each vehicles}}
+            <tr>
+                <td>{{description}}</td>
+                <td>{{reg_number}}</td>
+                <td>{{total_distance_traveled}}</td>
+                <td>{{total_fuel_spent}}</td>
+                <td>{{fuel_consumption}}</td>
+            </tr>
+        {{/each}}
+    </tbody>
+</table>
+
+  
+
+
+</body>
+
+</form>

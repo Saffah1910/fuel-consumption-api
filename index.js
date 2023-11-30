@@ -85,13 +85,15 @@ app.get('/addVehicle', async function (req, res) {
     
     console.log(add);
     res.redirect('/')
-//    req.flash('message')
+
 
   })
 
 // this renders the page to add info in order to refuel
   app.get('/refuel', async function (req, res) {
+    // this should add message when succesfully refueled
     const mes = req.flash('message')[0];
+    
     res.render('refuel',{
         mes
     }); 
@@ -107,8 +109,9 @@ app.get('/addVehicle', async function (req, res) {
     const distanceTravel = req.body.odometer;
     const fillUp = req.body.filledUp;
     console.log(fillUp);
-
+// value should be true since the table only accpets booleans
     const fillupValue = fillUp === "true"
+    
 //   this function uses the input as parametrs to add it in the databsae via the paramters
    await fuelConsumption.refuel(id, liters, amountPaid, distanceTravel, fillupValue);
 

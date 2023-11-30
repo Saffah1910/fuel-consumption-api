@@ -4,6 +4,9 @@
   "description": "",
   "type": "module",
   "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
   "scripts": {
     "test": "mocha",
     "dev": "nodemon",
@@ -20,6 +23,9 @@
     "express-flash": "^0.0.2",
     "express-handlebars": "^7.1.2",
     "pg-promise": "^11.5.4"
+  },
+  "engines": {
+    "node": "18.16.1"
   },
   "devDependencies": {
     "mocha": "^10.2.0",

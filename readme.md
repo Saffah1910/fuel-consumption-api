@@ -1,3 +1,5 @@
+[![Node.js CI](https://github.com/Saffah1910/fuel-consumption-api/actions/workflows/node.js.yml/badge.svg)](https://github.com/Saffah1910/fuel-consumption-api/actions/workflows/node.js.yml)
+
 # Fuel consumption API
 
 The fuel consumption API keeps track of vehicle fuel usage.

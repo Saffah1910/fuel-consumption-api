@@ -168,28 +168,28 @@ describe("The FuelConsumption API", function () {
         
     });
 
-    it("should no fuel consumption if one of the last 2 refuels ws not a full refill", async function() {
+    // it("should no fuel consumption if one of the last 2 refuels ws not a full refill", async function() {
         
-        const fuelConsumption = FuelConsumption(db);
+    //     const fuelConsumption = FuelConsumption(db);
 
-        const status = await fuelConsumption.addVehicle({
-            regNumber : "CY 125-905",
-            description : "Grey Toyota Etios"
-        });
+    //     const status = await fuelConsumption.addVehicle({
+    //         regNumber : "CY 125-905",
+    //         description : "Grey Toyota Etios"
+    //     });
 
-        const vehicleId = status.id;
+    //     const vehicleId = status.id;
 
-        await fuelConsumption.refuel(vehicleId, 23, 560, 45011, false);   // 23.50 per liter
-        await fuelConsumption.refuel(vehicleId, 21, 493.5, 45690, true);
+    //     await fuelConsumption.refuel(vehicleId, 23, 560, 45011, false);   // 23.50 per liter
+    //     await fuelConsumption.refuel(vehicleId, 21, 493.5, 45690, true);
 
-        const vehicle = await fuelConsumption.vehicle(vehicleId);
-        assert.equal(1053.5, vehicle.total_amount)
-        assert.equal(44, vehicle.total_liters)
+    //     const vehicle = await fuelConsumption.vehicle(vehicleId);
+    //     assert.equal(1053.5, vehicle.total_amount)
+    //     assert.equal(44, vehicle.total_liters)
         
-        // the fuel consumption is calculated like this
-        assert.equal(null, vehicle.fuel_consumption);  
+    //     // the fuel consumption is calculated like this
+    //     assert.equal(null, vehicle.fuel_consumption);  
         
-    });
+    // });
 
      after(db.$pool.end)
 

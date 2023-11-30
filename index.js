@@ -77,6 +77,7 @@ app.get('/addVehicle', async function (req, res) {
     // to add the vehicle only need description and regnumber
     const description =  req.body.description;
     const regNumber = req.body.reg_number;
+    
 
  
 
@@ -101,16 +102,20 @@ app.get('/addVehicle', async function (req, res) {
   app.post('/refuel',async function (req,res){
 // this informations comes from the input boxes from the form
     const id = req.body.vehicleId ;
+    console.log(id);
     const liters = req.body.liters;
     const amountPaid = req.body.amountPaid;
     const distanceTravel = req.body.odometer;
     const fillUp = req.body.filledUp;
+    console.log(fillUp);
+
+    const fillupValue = fillUp === "true"
 //   this function uses the input as parametrs to add it in the databsae via the paramters
-    fuelConsumption.refuel(id, liters, amountPaid, distanceTravel, fillUp);
+   await fuelConsumption.refuel(id, liters, amountPaid, distanceTravel, fillupValue);
 
     // req.flash("message","hello world")
 
-    // res.redirect('/')
+    res.redirect('/')
 
   })
 

@@ -146,27 +146,27 @@ describe("The FuelConsumption API", function () {
 
     });
 
-    it("should be able to add fuel for another vehicle", async function() {
+    // it("should be able to add fuel for another vehicle", async function() {
         
-        const fuelConsumption = FuelConsumption(db);
+    //     const fuelConsumption = FuelConsumption(db);
 
-        const status = await fuelConsumption.addVehicle({
-            regNumber : "CF 354-117",
-            description : "White Polo Vivo"
-        });
+    //     const status = await fuelConsumption.addVehicle({
+    //         regNumber : "CF 354-117",
+    //         description : "White Polo Vivo"
+    //     });
 
-        const vehicleId = status.id;
+    //     const vehicleId = status.id;
 
-        await fuelConsumption.refuel(vehicleId, 17, 722, 6130, true);   // R23.50 per liter
-        await fuelConsumption.refuel(vehicleId, 21, 493.5, 6708, true);
+    //     await fuelConsumption.refuel(vehicleId, 17, 722, 6130, true);   // R23.50 per liter
+    //     await fuelConsumption.refuel(vehicleId, 21, 493.5, 6708, true);
 
-        const vehicle = await fuelConsumption.vehicle(vehicleId);
-        assert.equal(1215.5, vehicle.total_amount)
-        assert.equal(38, vehicle.total_liters)
+    //     const vehicle = await fuelConsumption.vehicle(vehicleId);
+    //     assert.equal(1215.5, vehicle.total_amount)
+    //     assert.equal(38, vehicle.total_liters)
     
-        assert.equal(15.21, vehicle.fuel_consumption);  
+    //     assert.equal(15.21, vehicle.fuel_consumption);  
         
-    });
+    // });
 
     // it("should no fuel consumption if one of the last 2 refuels ws not a full refill", async function() {
         

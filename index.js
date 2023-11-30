@@ -56,12 +56,11 @@ const PORT = process.env.PORT ;
 
 
 // this renders the home page n which we can see all the vehicles added it will also add the new vehicles when use adds a new one
-app.get('/', async function(req,res){
+app.get('/', async function(req, res){
     const vehicles = await fuelConsumption.vehicles();
-    res.render('listAllVehicles',
-    { vehicles }
-    )
+    res.render('listAllVehicles', { vehicles });
 });
+
 
 // this renders the form to add info on the new vehicle and thatwill then be added to the database
 app.get('/addVehicle', async function (req, res) {

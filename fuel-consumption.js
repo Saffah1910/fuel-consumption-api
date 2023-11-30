@@ -34,7 +34,18 @@ export default function FuelConsumptionAPI(db) {
     }
 
     async function vehicles() {
-        return await db.manyOrNone(`select * from vehicles`);
+        return await db.manyOrNone(`
+        SELECT
+            v.*,
+            COALESCE(SUM(fe.liters), 0) AS total_liters,
+            COALESCE(SUM(fe.amount_paid), 0) AS total_amount,
+            COALESCE(AVG(v.fuel_consumption), 0) AS average_fuel_consumption
+        FROM
+            vehicles v
+            LEFT JOIN fuel_entries fe ON v.id = fe.vehicle_id
+        GROUP BY
+            v.id
+    `);
     }
 
     async function vehicle(id) {

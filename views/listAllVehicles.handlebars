@@ -62,16 +62,19 @@
                 </tr>
             </thead>
             <tbody>
-                {{#each vehicles}}
-                <tr>
-                    <td>{{id}}</td>
-                    <td>{{description}}</td>
-                    <td>{{reg_number}}</td>
-                    <td>{{total_distance_traveled}}</td>
-                    <td>{{total_fuel_spent}}</td>
-                    <td>{{fuel_consumption}}</td>
-                </tr>
-                {{/each}}
+             {{#each vehicles}}
+            <tr>
+                <td>{{id}}</td>
+                <td>{{description}}</td>
+                <td>{{reg_number}}</td>
+                <td>{{total_liters}}</td>
+                <td>{{total_amount}}</td>
+                <td>{{average_fuel_consumption}}</td>
+            </tr>
+        {{/each}}
+
+
+     
             </tbody>
         </table>
 

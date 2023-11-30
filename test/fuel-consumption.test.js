@@ -34,6 +34,9 @@ describe("The FuelConsumption API", function () {
         await db.none(`delete from fuel_entries`);
         await db.none(`delete from vehicles`);
     });
+    this.afterEach(async function () {
+        await db.$pool.end(); // Close the database connection pool
+      });
 
     it("should be able to add a vehicle with no errors", async function() {
 
@@ -190,7 +193,7 @@ describe("The FuelConsumption API", function () {
         
     });
 
-    after(db.$pool.end)
+    // after(db.$pool.end)
 
     
 });
